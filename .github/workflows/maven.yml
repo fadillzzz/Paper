@@ -1,0 +1,19 @@
+name: Java CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up JDK
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.11
+    - name: Configure Git
+      run: git config --global user.email "automated@work.flow" && git config --global user.name "Automated Workflow"
+    - name: Build
+      run: ./paper jar
